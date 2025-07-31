@@ -23,8 +23,7 @@ function readDirectoryStructure(dirPath) {
   const result = {};
 
   try {
-    // Read all items (files and directories) in the current directory path.
-    console.log("LUCHO",  dirPath)
+    // Read all items (files and directories) in the current directory path.\
     const items = fs.readdirSync(dirPath);
 
     // Iterate over each item found in the directory.
@@ -83,11 +82,6 @@ if (!targetPath) {
 
 // Resolve the path to an absolute path to ensure it's always correct.
 const projectPath = path.isAbsolute(targetPath) ? targetPath : path.resolve(targetPath);
-
-// --- Remove dummy project creation ---
-// function createDummyProject() { ... }
-// createDummyProject();
-// --- End of dummy project creation ---
 
 // Call the main function with the path to your project directory.
 let directoryJSON = readDirectoryStructure(projectPath);
