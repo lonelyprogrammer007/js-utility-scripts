@@ -61,13 +61,26 @@ function readDirectoryStructure(dirPath) {
 }
 
 // --- --- --- --- ---
-// --- USAGE EXAMPLE ---
+// --- USAGE ---
 // --- --- --- --- ---
 
-// Define the starting path for the Node.js project you want to read.
-// For this example, we'll create a dummy directory structure to demonstrate.
-// In a real scenario, you would replace './dummy-project' with something like './' or '../my-project'.
-const projectPath = path.join(__dirname, 'dummy-project');
+// Get the directory path from the command-line arguments.
+// process.argv[0] is 'node', process.argv[1] is the script file name.
+// The actual arguments start at index 2.
+const targetPath = process.argv[2];
+
+// Check if a path was provided.
+if (!targetPath) {
+  console.error('Error: Please provide a directory path to scan.');
+  console.log('Usage: node read-project.js <path-to-directory>');
+  process.exit(1); // Exit the script with an error code.
+}
+
+// Resolve the path to an absolute path to ensure it's always correct.
+const projectPath = path.resolve(targetPath);
+
+// Call the main function with the path provided by the user.
+const directoryJSON = readDirectoryStructure(projectPath);
 
 // --- Create a dummy directory and files for demonstration ---
 function createDummyProject() {
