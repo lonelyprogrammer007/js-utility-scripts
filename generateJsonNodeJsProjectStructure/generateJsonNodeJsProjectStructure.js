@@ -84,32 +84,13 @@ if (!targetPath) {
 // Resolve the path to an absolute path to ensure it's always correct.
 const projectPath = path.isAbsolute(targetPath) ? targetPath : path.resolve(targetPath);
 
-// Call the main function with the path provided by the user.
-let directoryJSON = readDirectoryStructure(projectPath);
-
-// --- Create a dummy directory and files for demonstration ---
-function createDummyProject() {
-  if (fs.existsSync(projectPath)) {
-    // If the directory already exists, remove it to start fresh.
-    // The { recursive: true, force: true } options ensure it deletes subdirectories and files.
-    fs.rmSync(projectPath, { recursive: true, force: true });
-  }
-  fs.mkdirSync(projectPath, { recursive: true });
-  fs.mkdirSync(path.join(projectPath, 'src'));
-  fs.mkdirSync(path.join(projectPath, 'test'));
-
-  fs.writeFileSync(path.join(projectPath, 'package.json'), '{\n  "name": "dummy-project",\n  "version": "1.0.0"\n}');
-  fs.writeFileSync(path.join(projectPath, 'src', 'index.js'), 'console.log("Hello, World!");');
-  fs.writeFileSync(path.join(projectPath, 'src', 'utils.js'), 'const add = (a, b) => a + b;');
-  fs.writeFileSync(path.join(projectPath, 'test', 'utils.test.js'), '// Test cases for utils.js');
-  console.log('Dummy project created for demonstration.');
-}
-
-createDummyProject();
+// --- Remove dummy project creation ---
+// function createDummyProject() { ... }
+// createDummyProject();
 // --- End of dummy project creation ---
 
 // Call the main function with the path to your project directory.
-directoryJSON = readDirectoryStructure(projectPath);
+let directoryJSON = readDirectoryStructure(projectPath);
 
 // Convert the resulting JavaScript object into a formatted JSON string.
 // The 'null, 2' arguments make the JSON output nicely indented and human-readable.
