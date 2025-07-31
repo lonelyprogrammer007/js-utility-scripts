@@ -80,7 +80,7 @@ if (!targetPath) {
 const projectPath = path.resolve(targetPath);
 
 // Call the main function with the path provided by the user.
-const directoryJSON = readDirectoryStructure(projectPath);
+let directoryJSON = readDirectoryStructure(projectPath);
 
 // --- Create a dummy directory and files for demonstration ---
 function createDummyProject() {
@@ -103,9 +103,8 @@ function createDummyProject() {
 createDummyProject();
 // --- End of dummy project creation ---
 
-
 // Call the main function with the path to your project directory.
-const directoryJSON = readDirectoryStructure(projectPath);
+directoryJSON = readDirectoryStructure(projectPath);
 
 // Convert the resulting JavaScript object into a formatted JSON string.
 // The 'null, 2' arguments make the JSON output nicely indented and human-readable.
