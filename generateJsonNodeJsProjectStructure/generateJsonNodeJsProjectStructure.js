@@ -29,6 +29,10 @@ function readDirectoryStructure(dirPath) {
 
     // Iterate over each item found in the directory.
     items.forEach(item => {
+      // Ignore node_modules directory
+      if (item === 'node_modules') {
+        return;
+      }
       // Construct the full path for the current item.
       const itemPath = path.join(dirPath, item);
       // Get statistics about the item to determine if it's a file or a directory.
