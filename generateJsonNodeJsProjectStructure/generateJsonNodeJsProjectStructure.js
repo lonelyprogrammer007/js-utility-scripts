@@ -24,6 +24,7 @@ function readDirectoryStructure(dirPath) {
 
   try {
     // Read all items (files and directories) in the current directory path.
+    console.log("LUCHO",  dirPath)
     const items = fs.readdirSync(dirPath);
 
     // Iterate over each item found in the directory.
@@ -77,7 +78,7 @@ if (!targetPath) {
 }
 
 // Resolve the path to an absolute path to ensure it's always correct.
-const projectPath = path.resolve(targetPath);
+const projectPath = path.isAbsolute(targetPath) ? targetPath : path.resolve(targetPath);
 
 // Call the main function with the path provided by the user.
 let directoryJSON = readDirectoryStructure(projectPath);
