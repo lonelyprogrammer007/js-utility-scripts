@@ -12,7 +12,7 @@
                 "<node_internals>/**"
             ],
             "program": "${workspaceFolder}\\generateJsonNodeJsProjectStructure\\generateJsonNodeJsProjectStructure.js",
-            "args": ["D:\\VSCODE-TEMP\\dist"]
+            "args": ["D:\\MyStorage\\JS-Workspace\\automated-doc-notion-api"]
         }
     ]
 }
